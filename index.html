@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <p>Rock Paper Scissors</p>
+
+</head>
+
+<body>
+<script>
+
+function computerPlay (){
+
+    const number = (Math.random()*3);
+
+    if(number <=1){
+        return "Rock"
+    }
+    else if(number >= 2){
+        return "Scissors"
+    }
+    else{
+        return "Paper"
+    }
+}
+
+let computerScore = 0;
+let playerScore = 0;
+
+function playRound(playerSelection, computerSelection){
+
+    if(playerSelection == 'Rock' && computerSelection =='Scissor'){
+
+        playerScore++;
+
+        return 'You Win! Rock beats Scissors. Scores: ${playerScore} TO ${computerScore}';
+
+    }
+    
+    else if(playerSelection == 'Rock' && computerSelection =='Paper'){
+
+computerScore++;
+
+return 'You Loss! Paper covers Rock. Scores: ${playerScore} TO ${computerScore}';
+
+}
+
+else if(playerSelection == 'Paper' && computerSelection =='Scissor'){
+
+computerScore++;
+
+return 'You Lose! Scissors cuts paper. Scores: ${playerScore} TO ${computerScore}';
+
+}
+
+else if(playerSelection == 'Paper' && computerSelection =='Rock'){
+
+playerScore++;
+
+return 'You win! paper covers Rock. Scores: ${playerScore} TO ${computerScore}';
+
+}
+
+else if(playerSelection == 'Scissors' && computerSelection =='Rock'){
+
+computerScore++;
+
+return 'You Lose! Rock beats Scissors. Scores: ${playerScore} TO ${computerScore}';
+
+}
+
+else if(playerSelection == 'Scissors' && computerSelection =='Paper'){
+
+computerScore++;
+
+return 'You Win! Rock beats Scissors. Scores: ${playerScore} TO ${computerScore}';
+
+}
+else {
+    return 'That was a draw !  Try Again. Score: ${playerScore} TO ${computerScore}';
+}
+}
+
+function game(){
+
+    for (let i=1; i<=5; i++){
+        let playerSelection = prompt('Type: Rock, Paper or Scissors');
+        playerSelection = playerSelection.toLowerCase();
+        const computerSelection = computerPlay();
+        console.log(playRound(playerSelection, computerPlay))
+    }
+
+    if(playerScore > computerScore){
+        console.log('You are the winner!. Final score: ${playerScore} to ${computerScore}');
+    }
+    else if (computerScore > playerScore){
+        console.log('You lose!. Final score: ${playerScore} to ${computerScore}');
+    }
+    else {
+        console.log('That was a draw. Final score: ${playerScore} to ${computerScore}');
+    }
+}
+
+game();
+</script>
+
+</body>
+
+</html>
